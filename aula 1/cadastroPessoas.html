@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cadastro Pessoas</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        Nome: <input type="text" v-model="nome"><br>
+        Profissão: <input type="text" v-model="profissao"><br>
+        <button v-on:click="salvar">Salvar</button>
+        <ul>
+            <li v-for="pes in pessoas">
+                {{pes.nomes}} - {{pes.prof}}
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            nome: "",
+            profissao: "",
+            pessoas: [], 
+            //contador: 0
+            
+        }, methods: {
+            salvar: function () {
+                //this.pessoas[this.contador] = { nomes: this.nome, prof: this.profissao }
+                //this.contador++
+                this.pessoas.push({
+                    nomes: this.nome,
+                    prof: this.profissao
+                })
+            }
+
+        }
+
+    })
+</script>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculadora</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+    <div id="container">
+        <h2>Digite os numéros para calcular</h2><br>
+
+        <input type="text" v-model="P">
+        <input type="text" v-model="S">  =
+        {{resultado}}
+        <br>
+        <button v-on:click="somar" style="width: 20px; height: 20px;"  >+</button>
+        <button v-on:click="subtrair">- </button>
+        <button v-on:click="multiplicar">* </button>
+        <button v-on:click="dividir">/ </button>
+    </div>
+</body>
+<script>
+    var container = new Vue({
+        el: "#container",
+        data: {
+            P: 0,
+            S: 0,
+            resultado: 0
+        }, methods: {
+            somar: function () {
+                this.resultado = parseFloat(this.P) + parseFloat(this.S)
+                //this.resultado = eval(`${this.P}`)
+            },
+            subtrair: function () {
+                this.resultado = parseFloat(this.P) - parseFloat(this.S)
+            },
+            multiplicar: function () {
+                this.resultado = parseFloat(this.P) * parseFloat(this.S)
+            },
+            dividir: function () {
+                this.resultado = parseFloat(this.P) / parseFloat(this.S)
+            }
+        }
+    });
+</script>
+
+</html>
